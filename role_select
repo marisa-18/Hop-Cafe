@@ -1,0 +1,131 @@
+<?php
+session_start();
+
+// ถ้ามีการเลือก role แล้ว ให้ redirect ไปหน้า login
+if(isset($_POST['role'])){
+    $_SESSION['role'] = $_POST['role']; // เซฟ role ลง session
+    header("Location: login.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>เลือกประเภทผู้ใช้งาน - Hop Cafe</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+body {
+    margin: 0;
+    font-family: 'Prompt', sans-serif;
+    background: linear-gradient(135deg,#5e4b8b,#8b6fc9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Header fixed */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+.header img {
+    height: 60px;
+    margin-right: 20px;
+}
+.header h1 {
+    margin: 0;
+    color: #5e4b8b;
+    font-size: 26px;
+}
+.header p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Container กล่องเลือก */
+.container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px; /* เว้นเพื่อไม่ให้ header ทับ */
+}
+
+/* Card กล่องเลือก */
+.card-role {
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card-role:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.3);
+}
+.card-role h3 {
+    color: #5e4b8b;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+.card-role p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+.card-role button {
+    padding: 12px 25px;
+    border: none;
+    background: #6a4caf;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.card-role button:hover { background: #5e4b8b; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <img src="assets/uploads/logo_hop-01.png" alt="โลโก้ร้าน">
+    <div>
+        <h1>Hop Cafe</h1>
+        <p>ระบบสั่งเครื่องดื่ม</p>
+    </div>
+</div>
+
+<!-- กล่องเลือกผู้ใช้งาน -->
+<div class="container">
+    <form method="post" class="card-role">
+        <h3>ผู้ใช้งาน</h3>
+        <p>เข้าสู่ระบบสำหรับผู้ใช้งานทั่วไป</p>
+        <button type="submit" name="role" value="user">เลือก</button>
+    </form>
+
+    <form method="post" class="card-role">
+        <h3>ผู้ดูแลระบบ</h3>
+        <p>เข้าสู่ระบบสำหรับผู้ดูแลระบบ</p>
+        <button type="submit" name="role" value="admin">เลือก</button>
+    </form>
+</div>
+
+</body>
+</html>
