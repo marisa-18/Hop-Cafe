@@ -1,0 +1,141 @@
+/* Header Bar */
+header {
+    text-align: center;
+    background: #5c2c90;
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Navigation */
+nav {
+    margin-top: 10px;
+    text-align: center;
+}
+
+nav a {
+    display: inline-block;
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* รีเซ็ตเบื้องต้น */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Prompt', sans-serif;
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background: linear-gradient(135deg,#5e4b8b,#8b6fc9);
+    margin: 0;
+    height: 100vh;   /* เต็มจอ */
+    display: flex;
+    flex-direction: column; /* ให้ header อยู่ด้านบน */
+}
+
+/* พื้นที่หลัก (main) สำหรับจัดกึ่งกลางฟอร์ม */
+main {
+    flex: 1; /* กินพื้นที่ที่เหลือ */
+    display: flex;
+    justify-content: center; /* จัดกลางแนวนอน */
+    align-items: center;     /* จัดกลางแนวตั้ง */
+}
+
+/* ฟอร์มล็อกอิน */
+.card {
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    width:350px;
+    text-align:center;
+}
+
+h2 { 
+    color:#5e4b8b; 
+    margin-bottom:20px; 
+}
+
+input { 
+    width:90%; 
+    padding:10px; 
+    margin:8px 0; 
+    border:1px solid #ccc; 
+    border-radius:8px; 
+}
+
+button {
+    background:#6a4caf; 
+    color:white; 
+    border:none; 
+    padding:10px;
+    width:100%; 
+    border-radius:8px; 
+    cursor:pointer; 
+    font-size:16px;
+}
+
+button:hover { 
+    background:#5e4b8b; 
+}
+
+a { 
+    color:#6a4caf; 
+    text-decoration:none; 
+    margin-top:10px; 
+    display:block; 
+}
+
+a:hover { 
+    text-decoration:underline; 
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 250px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.toast.show { 
+    opacity:1; 
+    pointer-events:auto; 
+    transform: translateX(-50%) translateY(0); 
+}
+.toast.success { background:#28a745; }
+.toast.error { background:#dc3545; }
